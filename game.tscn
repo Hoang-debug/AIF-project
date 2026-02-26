@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://bublmovt4t7wd"]
+
+[ext_resource type="PackedScene" uid="uid://cwh8dgv2ty5le" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://3jwibg1tugan" path="res://static.gd" id="2_feb5d"]
+[ext_resource type="Texture2D" uid="uid://cf2rwds6gm10a" path="res://Assets/Dark/texture_09.png" id="3_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://3xbvsc65c2b8" path="res://Assets/Light/texture_08.png" id="4_7jktm"]
+[ext_resource type="Script" uid="uid://dtagun53x8gmj" path="res://dynamic.gd" id="4_ryrav"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jktm"]
+albedo_texture = ExtResource("3_fc0e3")
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_7jktm"]
+material = SubResource("StandardMaterial3D_7jktm")
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryrav"]
+albedo_texture = ExtResource("4_7jktm")
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_eow3j"]
+material = SubResource("StandardMaterial3D_ryrav")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Game" type="Node3D" unique_id=757483936]
+
+[node name="Player" parent="." unique_id=1309774714 instance=ExtResource("1_80nbo")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1775208115]
+transform = Transform3D(1, 0, 0, 0, 0.6887976, 0.7249538, 0, -0.7249538, 0.6887976, 1.0051324, 6.756079, 6.625066)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1949151708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_feb5d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=702104955]
+mesh = SubResource("BoxMesh_7jktm")
+
+[node name="Boxes" type="Node3D" parent="." unique_id=761147820 groups=["grabable"]]
+
+[node name="Box" type="RigidBody3D" parent="Boxes" unique_id=820960977 groups=["grabable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ryrav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box" unique_id=841165255]
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="Box2" type="RigidBody3D" parent="Boxes" unique_id=1616196232 groups=["grabable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ryrav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box2" unique_id=1060207664]
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="Box3" type="RigidBody3D" parent="Boxes" unique_id=999017118 groups=["grabable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ryrav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box3" unique_id=829423235]
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="Box4" type="RigidBody3D" parent="Boxes" unique_id=1001798252 groups=["grabable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ryrav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box4" unique_id=1030827614]
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="Box5" type="RigidBody3D" parent="Boxes" unique_id=145508770 groups=["grabable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ryrav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box5" unique_id=194998955]
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="Box6" type="RigidBody3D" parent="Boxes" unique_id=1551570041 groups=["grabable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ryrav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box6" unique_id=1724836642]
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="Box7" type="RigidBody3D" parent="Boxes" unique_id=449184193 groups=["grabable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ryrav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box7" unique_id=1933709907]
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="Box8" type="RigidBody3D" parent="Boxes" unique_id=1754427320 groups=["grabable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ryrav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box8" unique_id=420890110]
+mesh = SubResource("BoxMesh_eow3j")

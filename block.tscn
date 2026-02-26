@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://4rpql3ocnk3c"]
+
+[ext_resource type="Material" uid="uid://drv5pj4jw0iry" path="res://basic.tres" id="1_im0tn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qncar"]
+material = ExtResource("1_im0tn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_im0tn"]
+
+[node name="Block" type="StaticBody3D" unique_id=112765454]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1929042147]
+mesh = SubResource("BoxMesh_qncar")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1010463726]
+shape = SubResource("BoxShape3D_im0tn")
