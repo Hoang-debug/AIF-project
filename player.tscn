@@ -19,6 +19,8 @@ height = 1.0
 [node name="Player" type="CharacterBody3D" unique_id=1309774714]
 collision_layer = 3
 script = ExtResource("1_4flbx")
+followSpeed = 10.0
+followDistance = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=941639294]
 mesh = SubResource("CapsuleMesh_i3pqv")
@@ -28,7 +30,9 @@ shape = SubResource("CapsuleShape3D_onrkg")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1560975720]
 
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=733835103]
+[node name="InteractRay" type="RayCast3D" parent="Camera3D" unique_id=733835103]
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 3
 
 [node name="Area3D" type="Area3D" parent="." unique_id=254559279]
 collision_layer = 3
@@ -37,6 +41,11 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=455715414]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
 shape = SubResource("CapsuleShape3D_i3pqv")
+
+[node name="GroundRay" type="RayCast3D" parent="." unique_id=158759446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+target_position = Vector3(0, -0.1, 0)
+collision_mask = 3
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

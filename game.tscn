@@ -46,6 +46,8 @@ mesh = SubResource("BoxMesh_7jktm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
+mass = 10.0
+angular_damp = 2.0
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box" unique_id=841165255]
@@ -55,6 +57,8 @@ mesh = SubResource("BoxMesh_eow3j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
+mass = 10.0
+angular_damp = 2.0
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box2" unique_id=1060207664]
@@ -64,6 +68,8 @@ mesh = SubResource("BoxMesh_eow3j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
+mass = 10.0
+angular_damp = 2.0
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box3" unique_id=829423235]
@@ -73,6 +79,8 @@ mesh = SubResource("BoxMesh_eow3j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
+mass = 10.0
+angular_damp = 2.0
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box4" unique_id=1030827614]
@@ -82,6 +90,8 @@ mesh = SubResource("BoxMesh_eow3j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
+mass = 10.0
+angular_damp = 2.0
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box5" unique_id=194998955]
@@ -91,6 +101,8 @@ mesh = SubResource("BoxMesh_eow3j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
+mass = 10.0
+angular_damp = 2.0
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box6" unique_id=1724836642]
@@ -100,6 +112,8 @@ mesh = SubResource("BoxMesh_eow3j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
+mass = 10.0
+angular_damp = 2.0
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box7" unique_id=1933709907]
@@ -109,6 +123,8 @@ mesh = SubResource("BoxMesh_eow3j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
+mass = 10.0
+angular_damp = 2.0
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box8" unique_id=420890110]
