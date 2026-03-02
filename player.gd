@@ -13,13 +13,11 @@ var camera_rotation := 0.0
 var mouse_captured := true
 
 # Object
-@export_group("Holding Objects")
+@export_category("Holding Objects")
 @export var throwForce = 7.5
 @export var followSpeed = 5.0
 @export var followDistance = 2.5
 @export var maxDistanceFromCamera = 5.0
-@export var dropBelowPlayer = false
-@export var groundRay: RayCast3D # Only needed if dropBelowPlayer is true
 
 # Ray
 @onready var interactRay = $Camera3D/InteractRay
@@ -30,9 +28,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if !mouse_captured:
-		return
-		
 	handle_holding_objects()
 			
 	if not is_on_floor():
@@ -74,7 +69,6 @@ func set_held_object(body):
 	if body and body.is_in_group("grabable"):
 		if body is RigidBody3D:
 			heldObject = body
-			heldObject.sleeping = false
 
 func drop_held_object():
 	heldObject = null
@@ -110,10 +104,6 @@ func handle_holding_objects():
 		# Drop the object if it's too far away from the camera
 		if heldObject.global_position.distance_to(camera.global_position) > maxDistanceFromCamera:
 			drop_held_object()
-			
-		# Drop the object if the player is standing on it (must enable dropBelowPlayer and set a groundRay/RayCast3D below the player)
-		if dropBelowPlayer && groundRay.is_colliding():
-			if groundRay.get_collider() == heldObject: drop_held_object()
 
 # Handle collision
 func _on_area_3d_body_entered(body: Node3D) -> void:

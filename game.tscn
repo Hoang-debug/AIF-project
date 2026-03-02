@@ -9,7 +9,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jktm"]
 albedo_texture = ExtResource("3_fc0e3")
 uv1_triplanar = true
-texture_filter = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_7jktm"]
 material = SubResource("StandardMaterial3D_7jktm")
@@ -24,9 +23,12 @@ texture_filter = 2
 material = SubResource("StandardMaterial3D_ryrav")
 size = Vector3(0.5, 0.5, 0.5)
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_7jktm"]
+
 [node name="Game" type="Node3D" unique_id=757483936]
 
 [node name="Player" parent="." unique_id=1309774714 instance=ExtResource("1_80nbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1775208115]
 transform = Transform3D(1, 0, 0, 0, 0.6887976, 0.7249538, 0, -0.7249538, 0.6887976, 1.0051324, 6.756079, 6.625066)
@@ -40,25 +42,25 @@ script = ExtResource("2_feb5d")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=702104955]
 mesh = SubResource("BoxMesh_7jktm")
 
-[node name="Boxes" type="Node3D" parent="." unique_id=761147820 groups=["grabable"]]
-
-[node name="Box" type="RigidBody3D" parent="Boxes" unique_id=820960977 groups=["grabable"]]
+[node name="Box" type="RigidBody3D" parent="." unique_id=820960977 groups=["grabable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
-angular_damp = 2.0
+angular_damp = 0.5
 script = ExtResource("4_ryrav")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box" unique_id=841165255]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box" unique_id=841165255]
 mesh = SubResource("BoxMesh_eow3j")
+
+[node name="Boxes" type="Node3D" parent="." unique_id=761147820 groups=["grabable"]]
 
 [node name="Box2" type="RigidBody3D" parent="Boxes" unique_id=1616196232 groups=["grabable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
-angular_damp = 2.0
+angular_damp = 0.5
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box2" unique_id=1060207664]
@@ -69,7 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
-angular_damp = 2.0
+angular_damp = 0.5
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box3" unique_id=829423235]
@@ -80,7 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
-angular_damp = 2.0
+angular_damp = 0.5
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box4" unique_id=1030827614]
@@ -91,7 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
-angular_damp = 2.0
+angular_damp = 0.5
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box5" unique_id=194998955]
@@ -102,7 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
-angular_damp = 2.0
+angular_damp = 0.5
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box6" unique_id=1724836642]
@@ -113,7 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
-angular_damp = 2.0
+angular_damp = 0.5
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box7" unique_id=1933709907]
@@ -124,8 +126,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.3831344)
 collision_layer = 2
 collision_mask = 2
 mass = 10.0
-angular_damp = 2.0
+angular_damp = 0.5
 script = ExtResource("4_ryrav")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box8" unique_id=420890110]
 mesh = SubResource("BoxMesh_eow3j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2051913009]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=712064965]
+mesh = SubResource("ArrayMesh_7jktm")
