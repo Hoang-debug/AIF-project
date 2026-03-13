@@ -1,19 +1,21 @@
 extends CharacterBody3D
 
 # Player setting
-@export_category("Movement")
+@export_group("Movement")
 @export var SPEED: float = 5.0
 @export var JUMP_VELOCITY = 4.5
+@export var SPRINT_AMOUNT: float = 1.5
+@export var SNEAK_AMOUNT: float = 0.75
 
 # Camera setting
-@export_category("Camera")
+@export_group("Camera")
 @onready var camera = $Camera3D
 @export var mouse_sensitivity := 0.003
 var camera_rotation := 0.0
 var mouse_captured := true
 
 # Object
-@export_category("Holding Objects")
+@export_group("Objects")
 @export var throwForce = 7.5
 @export var followSpeed = 5.0
 @export var followDistance = 2.5
@@ -23,9 +25,17 @@ var mouse_captured := true
 @onready var interactRay = $Camera3D/InteractRay
 var heldObject: RigidBody3D
 
+# Spawn
+var spawn: Node3D
+var is_resetting := false
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_spawn()
+	self.transform = spawn.transform
 
+func get_spawn():
+	spawn = get_tree().get_first_node_in_group("spawn")
 
 func _physics_process(delta: float) -> void:
 	handle_holding_objects()
@@ -38,15 +48,33 @@ func _physics_process(delta: float) -> void:
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var current_speed = SPEED
+
+	if Input.is_action_pressed("sprint") and is_on_floor():
+		current_speed *= SPRINT_AMOUNT
+	if Input.is_action_pressed("sneak") and is_on_floor():
+		current_speed *= SNEAK_AMOUNT
+
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * current_speed
+		velocity.z = direction.z * current_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+		velocity.x = move_toward(velocity.x, 0, current_speed)
+		velocity.z = move_toward(velocity.z, 0, current_speed)
+	
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+		
+		if body.is_in_group("lava") and not is_resetting:
+			is_resetting = true
+			call_deferred("reset_level")
+			#global_position = spawn.global_position
 
+func reset_level():
+	get_tree().reload_current_scene()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("paused"):

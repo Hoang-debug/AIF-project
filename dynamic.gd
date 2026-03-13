@@ -7,4 +7,5 @@ func _ready() -> void:
 	var shape = ConvexPolygonShape3D.new()
 	shape.points = $MeshInstance3D.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
 	collision.shape = shape
+	collision.position = position
 	add_child(collision)

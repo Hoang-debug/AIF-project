@@ -14,7 +14,7 @@ material = SubResource("StandardMaterial3D_onrkg")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3pqv"]
 radius = 0.3
-height = 1.0
+height = 0.9
 
 [node name="Player" type="CharacterBody3D" unique_id=1309774714]
 collision_layer = 3
