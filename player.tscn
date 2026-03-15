@@ -16,7 +16,7 @@ material = SubResource("StandardMaterial3D_onrkg")
 radius = 0.3
 height = 0.9
 
-[node name="Player" type="CharacterBody3D" unique_id=1309774714]
+[node name="Player" type="CharacterBody3D" unique_id=1309774714 groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_4flbx")
 followSpeed = 10.0

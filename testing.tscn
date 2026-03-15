@@ -3,15 +3,14 @@
 [ext_resource type="Script" uid="uid://dtagun53x8gmj" path="res://dynamic.gd" id="1_co24e"]
 [ext_resource type="Texture2D" uid="uid://3xbvsc65c2b8" path="res://Assets/Light/texture_08.png" id="2_feb8i"]
 [ext_resource type="Texture2D" uid="uid://cf2rwds6gm10a" path="res://Assets/Dark/texture_09.png" id="2_lc7k4"]
-[ext_resource type="Script" uid="uid://baya5m8c36bow" path="res://one_way.gd" id="4_kj3p2"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryrav"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_feb8i"]
 albedo_texture = ExtResource("2_feb8i")
 uv1_triplanar = true
 texture_filter = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_kj3p2"]
-material = SubResource("StandardMaterial3D_ryrav")
+material = SubResource("StandardMaterial3D_feb8i")
 size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jktm"]
@@ -27,9 +26,6 @@ data = PackedVector3Array(-50, 0.5, 50, 50, 0.5, 50, -50, -0.5, 50, 50, 0.5, 50,
 
 [sub_resource type="BoxMesh" id="BoxMesh_jn4p2"]
 size = Vector3(0.5, 10, 15)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lc7k4"]
-data = PackedVector3Array(-0.25, 5, 7.5, 0.25, 5, 7.5, -0.25, -5, 7.5, 0.25, 5, 7.5, 0.25, -5, 7.5, -0.25, -5, 7.5, 0.25, 5, -7.5, -0.25, 5, -7.5, 0.25, -5, -7.5, -0.25, 5, -7.5, -0.25, -5, -7.5, 0.25, -5, -7.5, 0.25, 5, 7.5, 0.25, 5, -7.5, 0.25, -5, 7.5, 0.25, 5, -7.5, 0.25, -5, -7.5, 0.25, -5, 7.5, -0.25, 5, -7.5, -0.25, 5, 7.5, -0.25, -5, -7.5, -0.25, 5, 7.5, -0.25, -5, 7.5, -0.25, -5, -7.5, 0.25, 5, 7.5, -0.25, 5, 7.5, 0.25, 5, -7.5, -0.25, 5, 7.5, -0.25, 5, -7.5, 0.25, 5, -7.5, -0.25, -5, 7.5, 0.25, -5, 7.5, -0.25, -5, -7.5, 0.25, -5, 7.5, 0.25, -5, -7.5, -0.25, -5, -7.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kj3p2"]
 data = PackedVector3Array(-0.25, 5, 7.5, 0.25, 5, 7.5, -0.25, -5, 7.5, 0.25, 5, 7.5, 0.25, -5, 7.5, -0.25, -5, 7.5, 0.25, 5, -7.5, -0.25, 5, -7.5, 0.25, -5, -7.5, -0.25, 5, -7.5, -0.25, -5, -7.5, 0.25, -5, -7.5, 0.25, 5, 7.5, 0.25, 5, -7.5, 0.25, -5, 7.5, 0.25, 5, -7.5, 0.25, -5, -7.5, 0.25, -5, 7.5, -0.25, 5, -7.5, -0.25, 5, 7.5, -0.25, -5, -7.5, -0.25, 5, 7.5, -0.25, -5, 7.5, -0.25, -5, -7.5, 0.25, 5, 7.5, -0.25, 5, 7.5, 0.25, 5, -7.5, -0.25, 5, 7.5, -0.25, 5, -7.5, 0.25, 5, -7.5, -0.25, -5, 7.5, 0.25, -5, 7.5, -0.25, -5, -7.5, 0.25, -5, 7.5, 0.25, -5, -7.5, -0.25, -5, -7.5)
@@ -213,26 +209,6 @@ shape = SubResource("ConcavePolygonShape3D_feb8i")
 [node name="Spawn" type="Marker3D" parent="." unique_id=1967147276 groups=["spawn"]]
 transform = Transform3D(-0.21294509, 0, -0.9770642, 0, 1, 0, 0.9770642, 0, -0.21294509, 1.2858399, -0.17829418, -1.811361)
 
-[node name="Wall" type="StaticBody3D" parent="." unique_id=1612681446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.766479, 3.3871655, 0)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("4_kj3p2")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=381696444]
-mesh = SubResource("BoxMesh_jn4p2")
-
-[node name="Check" type="Area3D" parent="Wall" unique_id=742448208]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/Check" unique_id=1331057104]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6273761, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_lc7k4")
-
-[node name="First" type="Area3D" parent="Wall" unique_id=569243451]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/First" unique_id=1477235647]
-shape = SubResource("ConcavePolygonShape3D_lc7k4")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=428318330]
 transform = Transform3D(0.850724, 0.38582292, -0.35694462, -0.18385534, -0.4177667, -0.8897574, -0.49240837, 0.82256407, -0.2844686, 0, 0, 0)
 
@@ -295,8 +271,3 @@ mesh = SubResource("BoxMesh_jn4p2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Wall6" unique_id=1689291833]
 shape = SubResource("ConcavePolygonShape3D_kj3p2")
-
-[connection signal="area_entered" from="Wall/Check" to="Wall" method="_on_check_area_entered"]
-[connection signal="area_exited" from="Wall/Check" to="Wall" method="_on_check_area_exited"]
-[connection signal="area_entered" from="Wall/First" to="Wall" method="_on_first_area_entered"]
-[connection signal="area_exited" from="Wall/First" to="Wall" method="_on_first_area_exited"]
