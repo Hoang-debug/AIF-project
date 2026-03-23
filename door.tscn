@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dvajtve2k53er"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hun61"]
+size = Vector3(5, 3, 0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ba8gm"]
+top_radius = 2.5
+bottom_radius = 2.5
+height = 0.5
+
+[node name="Door" type="Node3D" unique_id=1247228672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Mesh" type="Node3D" parent="." unique_id=277935477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh" unique_id=1294334048]
+mesh = SubResource("BoxMesh_hun61")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh" unique_id=263756241]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.5, 0)
+mesh = SubResource("CylinderMesh_ba8gm")

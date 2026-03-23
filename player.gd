@@ -94,7 +94,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Handle Object 
 func set_held_object(body):
-	if body and body.is_in_group("grabable"):
+	if body and body.is_in_group("grabbable"):
 		if body is RigidBody3D:
 			heldObject = body
 
@@ -118,9 +118,9 @@ func handle_holding_objects():
 		elif interactRay.is_colliding():
 			var body = interactRay.get_collider()
 			
-			if body.is_in_group("grabable"):
+			if body.is_in_group("grabbable"):
 				set_held_object(body)
-			elif body.get_parent() and body.get_parent().is_in_group("grabable"):
+			elif body.get_parent() and body.get_parent().is_in_group("grabbable"):
 				set_held_object(body.get_parent())
 		
 	# Object Following
@@ -135,7 +135,7 @@ func handle_holding_objects():
 
 # Handle collision
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("grabable"):
+	if body.is_in_group("grabbable"):
 		set_collision_layer(1)
 		set_collision_mask_value(1,false)
 		set_collision_mask_value(2,true)

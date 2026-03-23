@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://dva2ea3pn1nok"]
+
+[ext_resource type="Texture2D" uid="uid://cf2rwds6gm10a" path="res://Assets/Dark/texture_09.png" id="1_n7ypv"]
+[ext_resource type="PackedScene" uid="uid://dvi3ak7mo0cxb" path="res://wall.tscn" id="2_0s5r2"]
+[ext_resource type="Script" uid="uid://dtagun53x8gmj" path="res://dynamic.gd" id="3_7j8ne"]
+[ext_resource type="Texture2D" uid="uid://3xbvsc65c2b8" path="res://Assets/Light/texture_08.png" id="4_7dov7"]
+[ext_resource type="PackedScene" uid="uid://drfnn802nsbhd" path="res://goal.tscn" id="5_ehv2h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jktm"]
+albedo_texture = ExtResource("1_n7ypv")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_hbghi"]
+material = SubResource("StandardMaterial3D_7jktm")
+size = Vector3(100, 1, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hn12h"]
+data = PackedVector3Array(-50, 0.5, 50, 50, 0.5, 50, -50, -0.5, 50, 50, 0.5, 50, 50, -0.5, 50, -50, -0.5, 50, 50, 0.5, -50, -50, 0.5, -50, 50, -0.5, -50, -50, 0.5, -50, -50, -0.5, -50, 50, -0.5, -50, 50, 0.5, 50, 50, 0.5, -50, 50, -0.5, 50, 50, 0.5, -50, 50, -0.5, -50, 50, -0.5, 50, -50, 0.5, -50, -50, 0.5, 50, -50, -0.5, -50, -50, 0.5, 50, -50, -0.5, 50, -50, -0.5, -50, 50, 0.5, 50, -50, 0.5, 50, 50, 0.5, -50, -50, 0.5, 50, -50, 0.5, -50, 50, 0.5, -50, -50, -0.5, 50, 50, -0.5, 50, -50, -0.5, -50, 50, -0.5, 50, 50, -0.5, -50, -50, -0.5, -50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryrav"]
+albedo_texture = ExtResource("4_7dov7")
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_5hph3"]
+material = SubResource("StandardMaterial3D_ryrav")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Level 1" type="Node3D" unique_id=541155323]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1339864710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=399483211]
+mesh = SubResource("BoxMesh_hbghi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1895713885]
+shape = SubResource("ConcavePolygonShape3D_hn12h")
+
+[node name="Walls stuff" type="Node3D" parent="." unique_id=1119982773]
+transform = Transform3D(-0.21294509, 0, -0.9770642, 0, 1, 0, 0.9770642, 0, -0.21294509, 1.2858399, 0.8217058, -1.811361)
+
+[node name="Wall" parent="Walls stuff" unique_id=676660120 instance=ExtResource("2_0s5r2")]
+transform = Transform3D(3.066411, 0, -0.488532, 0, 10, 0, 14.069722, 0, 0.106472604, 8.883078, 4.178294, -0.6199877)
+one_way = true
+debug = false
+
+[node name="Wall2" parent="Walls stuff" unique_id=256948432 instance=ExtResource("2_0s5r2")]
+transform = Transform3D(4.471849, 0, -0.48853207, 0, 10, 0, 20.518345, 0, 0.10647262, -4.0505123, 4.178294, 5.7809668)
+debug = false
+
+[node name="Wall3" parent="Walls stuff" unique_id=2051174774 instance=ExtResource("2_0s5r2")]
+transform = Transform3D(14.167429, 0, 0.10647257, 0, 10, 0, -3.0877044, 0, 0.48853204, 3.5342443, 4.178294, 7.7100763)
+debug = false
+
+[node name="Wall4" parent="Walls stuff" unique_id=1495606688 instance=ExtResource("2_0s5r2")]
+transform = Transform3D(-20.958023, 0, -0.106472604, 0, 10, 0, 4.5676746, 0, -0.48853198, 4.46127, 4.178294, -6.8206015)
+debug = false
+
+[node name="Wall5" parent="Walls stuff" unique_id=1511034680 instance=ExtResource("2_0s5r2")]
+transform = Transform3D(-3.194176, -21.983942, -2.1354413e-08, 0, -9.835062e-07, 0.5, -14.655961, 4.791264, 4.654062e-09, 5.951885, 9.178294, 0.018847406)
+debug = false
+
+[node name="Wall6" parent="Walls stuff" unique_id=1583469992 instance=ExtResource("2_0s5r2")]
+transform = Transform3D(-3.8330112, 0, 0.48853204, 0, 10, 0, -17.587152, 0, -0.10647253, 16.148417, 4.178294, -0.15647495)
+debug = false
+
+[node name="Wall7" parent="Walls stuff" unique_id=638967952 instance=ExtResource("2_0s5r2")]
+transform = Transform3D(19.052748, 0, 0.10647256, 0, 10, 0, -4.1524296, 0, 0.488532, 6.0019236, 4.178294, 14.336579)
+debug = false
+
+[node name="Wall8" parent="Walls stuff" unique_id=39703496 instance=ExtResource("2_0s5r2")]
+transform = Transform3D(8.104707, 0, 0.42073178, 0, 10, 0, -12.621953, 0, 0.27015686, 17.087858, 4.178294, 8.850046)
+debug = false
+
+[node name="Spawn" type="Marker3D" parent="." unique_id=2106616889 groups=["spawn"]]
+transform = Transform3D(-0.21294509, 0, -0.9770642, 0, 1, 0, 0.9770642, 0, -0.21294509, 1.2858399, 0.8217058, -1.811361)
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1347486802]
+transform = Transform3D(-0.7295655, -0.63777274, 0.24694048, 0, 0.3610713, 0.93253815, -0.6839107, 0.6803478, -0.2634251, 5.3473473, 7.2018533, -5.7043133)
+light_energy = 0.5
+
+[node name="Boxes" type="Node3D" parent="." unique_id=1288656864 groups=["grabable"]]
+
+[node name="Box" type="RigidBody3D" parent="Boxes" unique_id=1964013526 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box" unique_id=1485471088]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box2" type="RigidBody3D" parent="Boxes" unique_id=1456054231 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box2" unique_id=747341936]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box3" type="RigidBody3D" parent="Boxes" unique_id=1807490455 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box3" unique_id=472786458]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box4" type="RigidBody3D" parent="Boxes" unique_id=1630370164 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box4" unique_id=948768270]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box5" type="RigidBody3D" parent="Boxes" unique_id=582492072 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box5" unique_id=2142103105]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box6" type="RigidBody3D" parent="Boxes" unique_id=1999457547 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box6" unique_id=858687986]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box7" type="RigidBody3D" parent="Boxes" unique_id=1031129032 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box7" unique_id=275680097]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box8" type="RigidBody3D" parent="Boxes" unique_id=353075801 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box8" unique_id=1757952892]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box9" type="RigidBody3D" parent="Boxes" unique_id=1552158895 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box9" unique_id=267606836]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box10" type="RigidBody3D" parent="Boxes" unique_id=1227660773 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box10" unique_id=1997582533]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box11" type="RigidBody3D" parent="Boxes" unique_id=1854189441 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box11" unique_id=400808660]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box12" type="RigidBody3D" parent="Boxes" unique_id=1785735953 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box12" unique_id=1931068843]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box13" type="RigidBody3D" parent="Boxes" unique_id=787668927 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box13" unique_id=5258780]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box14" type="RigidBody3D" parent="Boxes" unique_id=117582505 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box14" unique_id=945920484]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box15" type="RigidBody3D" parent="Boxes" unique_id=2013748381 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box15" unique_id=1984669194]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Box16" type="RigidBody3D" parent="Boxes" unique_id=282488578 groups=["grabable"]]
+collision_layer = 2
+collision_mask = 2
+angular_damp = 0.5
+script = ExtResource("3_7j8ne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box16" unique_id=890419741]
+mesh = SubResource("BoxMesh_5hph3")
+
+[node name="Goal" parent="." unique_id=287832730 groups=["grabable"] instance=ExtResource("5_ehv2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -3)

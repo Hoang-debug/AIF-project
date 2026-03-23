@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://drfnn802nsbhd"]
+
+[sub_resource type="Gradient" id="Gradient_7sh37"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6k3qi"]
+gradient = SubResource("Gradient_7sh37")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7sh37"]
+emission_enabled = true
+emission = Color(1, 0.80784315, 0.26666668, 1)
+emission_energy_multiplier = 3.0
+emission_texture = SubResource("GradientTexture2D_6k3qi")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6k3qi"]
+material = SubResource("StandardMaterial3D_7sh37")
+top_radius = 0.75
+bottom_radius = 0.75
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7sh37"]
+radius = 0.75
+
+[node name="Goal" type="RigidBody3D" unique_id=305002552]
+collision_layer = 2
+collision_mask = 2
+mass = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2003717575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_6k3qi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=901831949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_7sh37")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=408572269]
