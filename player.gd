@@ -133,6 +133,10 @@ func handle_holding_objects():
 		if heldObject.global_position.distance_to(camera.global_position) > maxDistanceFromCamera:
 			drop_held_object()
 
+	
+	#if body.is_in_group("damage"):
+		#transform=spawn.transform
+
 # Handle collision
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("grabbable"):
@@ -142,6 +146,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	set_collision_layer(2)
+	set_collision_layer(2) 
 	set_collision_mask_value(1,true)
 	set_collision_mask_value(2,false)

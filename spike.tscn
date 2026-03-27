@@ -1,0 +1,44 @@
+[gd_scene format=4 uid="uid://bjv8vj37ptjjj"]
+
+[ext_resource type="Script" uid="uid://h2kwi2lynj1n" path="res://spike.gd" id="1_8ryga"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_107jd"]
+points = PackedVector3Array(0, 1, 0, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l7blm"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1, 1),
+"format": 34359738375,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAAAAAgD8AAAAAAAAAvwAAAAAAAAC/AAAAPwAAAAAAAAC/AAAAAAAAgD8AAAAAAAAAPwAAAAAAAAC/AAAAPwAAAAAAAAA/AAAAAAAAgD8AAAAAAAAAPwAAAAAAAAA/AAAAvwAAAAAAAAA/AAAAAAAAgD8AAAAAAAAAvwAAAAAAAAA/AAAAvwAAAAAAAAC/AAAAvwAAAAAAAAC/AAAAvwAAAAAAAAA/AAAAPwAAAAAAAAA/AAAAvwAAAAAAAAC/AAAAPwAAAAAAAAA/AAAAPwAAAAAAAAC//3///wAA/7/kMI0nST8Ew9z4bjwrp8qp/3///wAA/7/c+G48K6fKqY2nG08+OVqg/3///wAA/7+NpxtPPjlaoJBD3XjkrXir/3///wAA/7+QQ9145K14q+QwjSdJPwTD5DCNJ0k/BMOQQ9145K14q42nG08+OVqg5DCNJ0k/BMONpxtPPjlaoNz4bjwrp8qp")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ryga"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.1, 0, 1)
+emission_energy_multiplier = 2.0
+
+[node name="Spike" type="StaticBody3D" unique_id=1966865590 groups=["damage"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_8ryga")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=158661011]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=499039143]
+shape = SubResource("ConvexPolygonShape3D_107jd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=115230654]
+mesh = SubResource("ArrayMesh_l7blm")
+surface_material_override/0 = SubResource("StandardMaterial3D_8ryga")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=640592612]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_107jd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

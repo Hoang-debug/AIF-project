@@ -14,8 +14,9 @@ func _ready() -> void:
 		set_size()
 		scale = Vector3(1,1,1)
 	
-	if !one_way:
-		$Area3D/MeshInstance3D.visible = false
+	$Area3D/MeshInstance3D.visible = false
+	#if !one_way:
+		#$Area3D/MeshInstance3D.visible = false
 
 func set_size():
 	$MeshInstance3D.mesh.size = scale

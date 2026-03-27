@@ -3,22 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://cf2rwds6gm10a" path="res://Assets/Dark/texture_09.png" id="1_3hls8"]
 [ext_resource type="PackedScene" uid="uid://dvi3ak7mo0cxb" path="res://wall.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://cct8tg8y0285t" path="res://box.tscn" id="3_ihfcg"]
-[ext_resource type="PackedScene" uid="uid://dvajtve2k53er" path="res://door.tscn" id="5_5hph3"]
+[ext_resource type="PackedScene" uid="uid://bjv8vj37ptjjj" path="res://spike.tscn" id="5_5hph3"]
 [ext_resource type="PackedScene" uid="uid://drfnn802nsbhd" path="res://goal.tscn" id="5_rka8t"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ihfcg"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rka8t"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_rka8t"]
-sky_material = SubResource("ProceduralSkyMaterial_ihfcg")
+[sub_resource type="Sky" id="Sky_5hph3"]
+sky_material = SubResource("ProceduralSkyMaterial_rka8t")
 
-[sub_resource type="Environment" id="Environment_5hph3"]
+[sub_resource type="Environment" id="Environment_j7kpp"]
 background_mode = 2
-background_energy_multiplier = 2.0
-sky = SubResource("Sky_rka8t")
+sky = SubResource("Sky_5hph3")
 tonemap_mode = 2
-tonemap_exposure = 0.34
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jktm"]
@@ -34,12 +32,11 @@ data = PackedVector3Array(-50, 0.5, 50, 50, 0.5, 50, -50, -0.5, 50, 50, 0.5, 50,
 
 [node name="Level 1" type="Node3D" unique_id=541155323]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=614313330]
-environment = SubResource("Environment_5hph3")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1012862320]
+environment = SubResource("Environment_j7kpp")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1339864710]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-visible = false
 collision_layer = 3
 collision_mask = 3
 
@@ -163,14 +160,227 @@ transform = Transform3D(29, 0, 0, 0, -2.5702295e-06, -0.5, 0, 58.8, -2.1855694e-
 [node name="Wall22" parent="Walls" unique_id=1633301923 instance=ExtResource("2_hbghi")]
 transform = Transform3D(-8.742278e-07, 0, 0.5, 0, 10.5, 0, -20, 0, -2.1855694e-08, 8, 15, -45.5)
 
-[node name="Wall23" parent="Walls" unique_id=1461030260 instance=ExtResource("2_hbghi")]
-transform = Transform3D(23.240131, 0, 0, 0, 14.683201, 0, 0, 0, 0.5, -4, 19, -38)
+[node name="Spike row" type="Node3D" parent="." unique_id=1713715008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 5.25, -37.034)
 
-[node name="Door" parent="." unique_id=1247228672 instance=ExtResource("5_5hph3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4897091, 6, -38)
+[node name="Spike" parent="Spike row" unique_id=1966865590 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -16.101185, 0, 0)
 
-[node name="Wall23" parent="." unique_id=1176609872 instance=ExtResource("2_hbghi")]
-transform = Transform3D(11.5, 0, 0, 0, 14.683, 0, 0, 0, 0.5, -11, 12, -38)
+[node name="Spike2" parent="Spike row" unique_id=1034586313 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -15.101185, 0, 0)
 
-[node name="Wall24" parent="." unique_id=273779591 instance=ExtResource("2_hbghi")]
-transform = Transform3D(11.5, 0, 0, 0, 14.683, 0, 0, 0, 0.5, 6, 12, -38)
+[node name="Spike3" parent="Spike row" unique_id=624565407 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -14.101185, 0, 0)
+
+[node name="Spike4" parent="Spike row" unique_id=1434561532 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -13.101185, 0, 0)
+
+[node name="Spike5" parent="Spike row" unique_id=1069212756 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -12.101185, 0, 0)
+
+[node name="Spike6" parent="Spike row" unique_id=1874425879 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -11.101185, 0, 0)
+
+[node name="Spike7" parent="Spike row" unique_id=1504156584 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -10.101185, 0, 0)
+
+[node name="Spike8" parent="Spike row" unique_id=1147029623 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -9.101185, 0, 0)
+
+[node name="Spike9" parent="Spike row" unique_id=2127517016 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -8.101185, 0, 0)
+
+[node name="Spike10" parent="Spike row" unique_id=2024755119 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -7.101185, 0, 0)
+
+[node name="Spike11" parent="Spike row" unique_id=179540399 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -6.101185, 0, 0)
+
+[node name="Spike12" parent="Spike row" unique_id=1231333169 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -5.101185, 0, 0)
+
+[node name="Spike13" parent="Spike row" unique_id=1010519606 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -4.1011844, 0, 0)
+
+[node name="Spike14" parent="Spike row" unique_id=987178706 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -3.1011844, 0, 0)
+
+[node name="Spike15" parent="Spike row" unique_id=643493472 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -2.1011844, 0, 0)
+
+[node name="Spike16" parent="Spike row" unique_id=1847996664 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -1.1011844, 0, 0)
+
+[node name="Spike17" parent="Spike row" unique_id=949697091 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.10118437, 0, 0)
+
+[node name="Spike18" parent="Spike row" unique_id=1898106125 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.89881563, 0, 0)
+
+[node name="Spike19" parent="Spike row" unique_id=1289318000 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 1.8988156, 0, 0)
+
+[node name="Spike20" parent="Spike row" unique_id=568233376 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 2.8988156, 0, 0)
+
+[node name="Spike21" parent="Spike row" unique_id=1615503566 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 3.8988156, 0, 0)
+
+[node name="Spike22" parent="Spike row" unique_id=887134032 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 4.8988156, 0, 0)
+
+[node name="Spike23" parent="Spike row" unique_id=1169435131 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 5.8988156, 0, 0)
+
+[node name="Spike24" parent="Spike row" unique_id=307726122 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 6.8988156, 0, 0)
+
+[node name="Spike row2" type="Node3D" parent="." unique_id=2126781177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 5.25, -36.034)
+
+[node name="Spike" parent="Spike row2" unique_id=1711915341 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -16.101185, 0, 0)
+
+[node name="Spike2" parent="Spike row2" unique_id=1135948335 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -15.101185, 0, 0)
+
+[node name="Spike3" parent="Spike row2" unique_id=1023330083 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -14.101185, 0, 0)
+
+[node name="Spike4" parent="Spike row2" unique_id=1179161935 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -13.101185, 0, 0)
+
+[node name="Spike5" parent="Spike row2" unique_id=1954889941 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -12.101185, 0, 0)
+
+[node name="Spike6" parent="Spike row2" unique_id=1185775657 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -11.101185, 0, 0)
+
+[node name="Spike7" parent="Spike row2" unique_id=2128464772 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -10.101185, 0, 0)
+
+[node name="Spike8" parent="Spike row2" unique_id=1819880312 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -9.101185, 0, 0)
+
+[node name="Spike9" parent="Spike row2" unique_id=1753329098 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -8.101185, 0, 0)
+
+[node name="Spike10" parent="Spike row2" unique_id=1868240140 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -7.101185, 0, 0)
+
+[node name="Spike11" parent="Spike row2" unique_id=916476187 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -6.101185, 0, 0)
+
+[node name="Spike12" parent="Spike row2" unique_id=1420508899 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -5.101185, 0, 0)
+
+[node name="Spike13" parent="Spike row2" unique_id=1087718974 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -4.1011844, 0, 0)
+
+[node name="Spike14" parent="Spike row2" unique_id=233050556 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -3.1011844, 0, 0)
+
+[node name="Spike15" parent="Spike row2" unique_id=32512020 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -2.1011844, 0, 0)
+
+[node name="Spike16" parent="Spike row2" unique_id=2065162033 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -1.1011844, 0, 0)
+
+[node name="Spike17" parent="Spike row2" unique_id=176119666 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.10118437, 0, 0)
+
+[node name="Spike18" parent="Spike row2" unique_id=2038313178 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.89881563, 0, 0)
+
+[node name="Spike19" parent="Spike row2" unique_id=1998324617 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 1.8988156, 0, 0)
+
+[node name="Spike20" parent="Spike row2" unique_id=565937405 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 2.8988156, 0, 0)
+
+[node name="Spike21" parent="Spike row2" unique_id=1465828546 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 3.8988156, 0, 0)
+
+[node name="Spike22" parent="Spike row2" unique_id=1200621379 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 4.8988156, 0, 0)
+
+[node name="Spike23" parent="Spike row2" unique_id=1396432900 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 5.8988156, 0, 0)
+
+[node name="Spike24" parent="Spike row2" unique_id=1401306312 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 6.8988156, 0, 0)
+
+[node name="Spike row3" type="Node3D" parent="." unique_id=1344577688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 5.25, -35.034)
+
+[node name="Spike" parent="Spike row3" unique_id=1165910995 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -16.101185, 0, 0)
+
+[node name="Spike2" parent="Spike row3" unique_id=412617305 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -15.101185, 0, 0)
+
+[node name="Spike3" parent="Spike row3" unique_id=984804059 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -14.101185, 0, 0)
+
+[node name="Spike4" parent="Spike row3" unique_id=595099683 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -13.101185, 0, 0)
+
+[node name="Spike5" parent="Spike row3" unique_id=1550892557 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -12.101185, 0, 0)
+
+[node name="Spike6" parent="Spike row3" unique_id=2035553796 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -11.101185, 0, 0)
+
+[node name="Spike7" parent="Spike row3" unique_id=511697656 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -10.101185, 0, 0)
+
+[node name="Spike8" parent="Spike row3" unique_id=213129655 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -9.101185, 0, 0)
+
+[node name="Spike9" parent="Spike row3" unique_id=24848761 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -8.101185, 0, 0)
+
+[node name="Spike10" parent="Spike row3" unique_id=1890278678 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -7.101185, 0, 0)
+
+[node name="Spike11" parent="Spike row3" unique_id=606652110 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -6.101185, 0, 0)
+
+[node name="Spike12" parent="Spike row3" unique_id=504826692 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -5.101185, 0, 0)
+
+[node name="Spike13" parent="Spike row3" unique_id=388196488 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -4.1011844, 0, 0)
+
+[node name="Spike14" parent="Spike row3" unique_id=892443612 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -3.1011844, 0, 0)
+
+[node name="Spike15" parent="Spike row3" unique_id=39974848 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -2.1011844, 0, 0)
+
+[node name="Spike16" parent="Spike row3" unique_id=2129902191 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -1.1011844, 0, 0)
+
+[node name="Spike17" parent="Spike row3" unique_id=1871918329 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.10118437, 0, 0)
+
+[node name="Spike18" parent="Spike row3" unique_id=2064058539 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.89881563, 0, 0)
+
+[node name="Spike19" parent="Spike row3" unique_id=536217310 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 1.8988156, 0, 0)
+
+[node name="Spike20" parent="Spike row3" unique_id=781303210 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 2.8988156, 0, 0)
+
+[node name="Spike21" parent="Spike row3" unique_id=1333402403 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 3.8988156, 0, 0)
+
+[node name="Spike22" parent="Spike row3" unique_id=482907396 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 4.8988156, 0, 0)
+
+[node name="Spike23" parent="Spike row3" unique_id=271326095 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 5.8988156, 0, 0)
+
+[node name="Spike24" parent="Spike row3" unique_id=1748481000 instance=ExtResource("5_5hph3")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 6.8988156, 0, 0)
